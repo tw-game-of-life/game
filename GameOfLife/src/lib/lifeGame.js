@@ -42,21 +42,23 @@ class LifeGameController {
   getLiveCount(cell) {
     let x = cell.x;
     let y = cell.y;
-    let neighbors = [];
 
-    if (this.grid[x - 1]) {
-      neighbors.concat([this.grid[x - 1][y], this.grid[x - 1][y - 1], this.grid[x - 1][y + 1]]);
+    let count = 0;
+    if (y > 0) {
+      if (x > 0 && this.grid[x - 1][y - 1].state === 1) count++;
+      if (this.grid[x][y - 1].state === 1) count++;
+      if (x < this.row-1 && this.grid[x + 1][y - 1].state === 1) count++;
     }
-    if (this.grid[x + 1]) {
-      neighbors.concat([this.grid[x + 1][y], this.grid[x + 1][y - 1], this.grid[x + 1][y + 1]]);
+    if (y < this.col-1) {
+      if (x > 0 && this.grid[x - 1][y + 1].state === 1) count++;
+      if (this.grid[x][y + 1].state === 1) count++;
+      if (x < this.row-1 && this.grid[x + 1][y + 1].state === 1) count++;
     }
-    neighbors.concat([this.grid[x][y - 1], this.grid[x][y + 1]]);
-    neighbors.reduce(function (acc, cell) {
-      if (cell) {
-        acc = acc + cell.state;
-      }
-      return acc;
-    }, 0)
+
+    if (x > 0 && this.grid[x - 1][y].state === 1) count++;
+    if (x < this.row-1 && this.grid[x + 1][y].state === 1) count++;
+
+    return count;
   }
 
   nextGenration() {
