@@ -1,13 +1,18 @@
 <template>
   <div id="app">
 
-    <router-view/>
+    <Game :row="10" :col="10"></Game>
   </div>
 </template>
 
 <script>
+  import Game from './components/Game.vue'
+
 export default {
-  name: 'App'
+  name: 'App',
+
+
+  components:{Game}
 }
 </script>
 
