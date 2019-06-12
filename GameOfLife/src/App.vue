@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <Game :row="10" :col="10"></Game>
+    <Game :row="3" :col="3"></Game>
   </div>
 </template>
 

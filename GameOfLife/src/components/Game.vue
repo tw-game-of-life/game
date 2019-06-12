@@ -1,5 +1,6 @@
 <template>
   <div class="game">
+    <button @click="next">next</button>
 
     <table  >
       <tbody>
@@ -9,19 +10,11 @@
       </tbody>
 
     </table>
-
-
-
   </div>
 </template>
 
-
 <script>
 import LifeGame from '../lib/lifeGame.js'
-
-
-
-
 
 export default {
   name: 'Game',
@@ -32,11 +25,17 @@ export default {
       game:{}
     }
   },
-
   created() {
     this.game = new LifeGame(this.row,this.col);
     this.grid = this.game.init()
     console.log(this.col)
+  },
+  methods:{
+    next(){
+      const newGrid = this.game.nextGenration()
+      // this.grid = JSON.parse(JSON.stringify(newGrid));
+      this.grid = newGrid
+    }
   }
 
 
