@@ -15,7 +15,7 @@ Cell.prototype.nextState = function (aliveCount) {
       this.state = 1;
     }
   }
-}
+};
 
 class LifeGameController {
   constructor(row, col) {
@@ -39,39 +39,36 @@ class LifeGameController {
     return Math.random() > 0.5 ? 1 : 0;
   }
 
-  getLiveCount(cell){
+  getLiveCount(cell) {
     let x = cell.x;
     let y = cell.y;
     let neighbors = [];
 
-
-    if(this.grid[x-1]){
-      neighbors.concat([this.grid[x-1][y], this.grid[x-1][y-1], this.grid[x-1][y+1] ]);
+    if (this.grid[x - 1]) {
+      neighbors.concat([this.grid[x - 1][y], this.grid[x - 1][y - 1], this.grid[x - 1][y + 1]]);
     }
-    if(this.grid[x+1]){
-      neighbors.concat([this.grid[x+1][y], this.grid[x+1][y-1], this.grid[x+1][y+1] ]);
+    if (this.grid[x + 1]) {
+      neighbors.concat([this.grid[x + 1][y], this.grid[x + 1][y - 1], this.grid[x + 1][y + 1]]);
     }
-    neighbors.concat([this.grid[x][y-1], this.grid[x][y+1]])
-   neighbors.reduce(function (acc,cell) {
-     if(cell){
-       acc = acc + cell.state;
-     }
-     return acc;
-   },0)
-
+    neighbors.concat([this.grid[x][y - 1], this.grid[x][y + 1]]);
+    neighbors.reduce(function (acc, cell) {
+      if (cell) {
+        acc = acc + cell.state;
+      }
+      return acc;
+    }, 0)
   }
+
   nextGenration() {
     let newGrid = [];
-    for (var i = 0; i < this.row; i++) {
+    for (let i = 0; i < this.row; i++) {
       newGrid[i] = [];
       for (let j = 0; j < this.col; j++) {
         let oldState = this.grid[i][j].state;
-
         let cell = new Cell(i, j, oldState);
         let aliveCount = this.getLiveCount(cell);
         cell.nextState(aliveCount);
         newGrid[i][j] = cell;
-
       }
     }
     this.grid = newGrid;
