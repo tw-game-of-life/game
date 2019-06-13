@@ -2,7 +2,6 @@ function Cell(x, y, state) {
   this.x = x;
   this.y = y;
   this.state = state;
-
 }
 
 Cell.prototype.nextState = function (aliveCount) {
@@ -23,12 +22,12 @@ class LifeGameController {
     this.col = col;
   }
 
-  init() {
+  init(empty) {
     let grid = [];
     for (var i = 0; i < this.row; i++) {
       grid[i] = [];
       for (let j = 0; j < this.col; j++) {
-        grid[i][j] = new Cell(i, j, this.random());
+        grid[i][j] = new Cell(i, j, empty ? 0 : this.random());
       }
     }
     this.grid = grid;
@@ -75,6 +74,10 @@ class LifeGameController {
     }
     this.grid = newGrid;
     return newGrid;
+  }
+
+  cellClick(cell){
+    cell.state =  (cell.state + 1) % 2
   }
 }
 
