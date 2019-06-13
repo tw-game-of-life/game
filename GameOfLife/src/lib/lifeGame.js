@@ -1,4 +1,5 @@
-function Cell(x, y, state) {
+ export function Cell(x, y, state) {
+  console.log(x)
   this.x = x;
   this.y = y;
   this.state = state;
