@@ -72,6 +72,7 @@
       this.createWorld()
     },
     methods: {
+      //creat
       createWorld(){
         this.game = new LifeGame(this.tempRow, this.tempCol);
         this.grid = this.game.init(true)
