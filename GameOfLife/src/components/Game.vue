@@ -16,37 +16,39 @@
 
     <div class="setting-warp">
       <div>
-        <a-button @click="createGrid">createGrid</a-button>
+        <a-button size="large" @click="createGrid">createGrid</a-button>
         <a-input-number
+          size="large"
           :min="10"
-          :max="50"
+          :max="100"
           style="marginLeft: 16px"
           placeholder="row"
           v-model="tempRow"
         />
         <a-input-number
           :min="10"
-          :max="50"
+          :max="100"
+          size="large"
           style="marginLeft: 16px"
           placeholder="col"
           v-model="tempCol"
         />
       </div>
       <div>
-        <a-button @click="random">random</a-button>
-        <a-button @click="next">next</a-button>
+        <a-button size="large" @click="random">random</a-button>
+        <a-button size="large" @click="next" style="margin-left: 12px">next</a-button>
       </div>
       <div
         style="display: flex;align-items: center;width: 100%;position: relative"
       >
-        <a-button @click="start">start</a-button>
-        <a-button @click="stop" style="margin-left: 8px">stop</a-button>
+        <a-button size="large" @click="start">start</a-button>
+        <a-button size="large" @click="stop" style="margin-left: 12px">stop</a-button>
         <a-slider
           v-model="speed"
           :max="2000"
           :min="50"
           :tooltipVisible="true"
-          style="width: 20%"
+          style="width: 40%"
         />
       </div>
     </div>
@@ -136,8 +138,8 @@ export default {
 }
 
 td {
-  height: 10px;
-  width: 10px;
+  height: 20px;
+  width: 20px;
   border: 1px solid #ddd;
 }
 

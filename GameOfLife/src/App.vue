@@ -2,7 +2,7 @@
 
   <div id="app" style="width: 100%;height: 100%;position: relative">
 
-    <Game :row="20" :col="20"></Game>
+    <Game :row="30" :col="30"></Game>
   </div>
 </template>
 
