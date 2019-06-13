@@ -4,7 +4,7 @@ function Cell(x, y, state) {
   this.state = state;
 }
 
-Cell.prototype.nextState = function (aliveCount) {
+Cell.prototype.nextState = function(aliveCount) {
   if (this.state === 1) {
     if (aliveCount < 2 || aliveCount > 3) {
       this.state = 0;
@@ -46,16 +46,16 @@ class LifeGameController {
     if (y > 0) {
       if (x > 0 && this.grid[x - 1][y - 1].state === 1) count++;
       if (this.grid[x][y - 1].state === 1) count++;
-      if (x < this.row-1 && this.grid[x + 1][y - 1].state === 1) count++;
+      if (x < this.row - 1 && this.grid[x + 1][y - 1].state === 1) count++;
     }
-    if (y < this.col-1) {
+    if (y < this.col - 1) {
       if (x > 0 && this.grid[x - 1][y + 1].state === 1) count++;
       if (this.grid[x][y + 1].state === 1) count++;
-      if (x < this.row-1 && this.grid[x + 1][y + 1].state === 1) count++;
+      if (x < this.row - 1 && this.grid[x + 1][y + 1].state === 1) count++;
     }
 
     if (x > 0 && this.grid[x - 1][y].state === 1) count++;
-    if (x < this.row-1 && this.grid[x + 1][y].state === 1) count++;
+    if (x < this.row - 1 && this.grid[x + 1][y].state === 1) count++;
 
     return count;
   }
@@ -76,8 +76,8 @@ class LifeGameController {
     return newGrid;
   }
 
-  cellClick(cell){
-    cell.state =  (cell.state + 1) % 2
+  cellClick(cell) {
+    cell.state = (cell.state + 1) % 2;
   }
 }
 
